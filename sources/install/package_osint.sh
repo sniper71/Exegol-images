@@ -388,6 +388,18 @@ function install_sherlock() {
     add-to-list "sherlock,https://github.com/sherlock-project/sherlock Hunt down social media accounts by username across social networks"
 }
 
+function install_daprofiler() {
+    colorecho "Installing daprofiler"
+    git -C /opt/tools/ clone --depth 1 https://github.com/TheRealDalunacrobate/DaProfiler.git
+    cd /opt/tools/DaProfiler
+    python3 -m venv ./venv
+    ./venv/bin/python3 -m pip install -r requirements.txt
+    add-aliases daprofiler
+    add-history daprofiler
+    add-test-command "daprofiler --help"
+    add-to-list "daprofiler,https://github.com/daprofiler/DaProfiler, DaProfiler is an OSINT tool capable of tracing the digital identity of a target via social networks"
+}
+
 # Package dedicated to osint, recon and passive tools
 function package_osint() {
     set_go_env
@@ -427,6 +439,7 @@ function package_osint() {
     install_ignorant                # holehe but for phone numbers
     install_trevorspray             # modular password sprayer with threading, SSH proxying, loot modules, and more!
     install_sherlock                # Hunt down social media accounts by username across social networks
+    install_daprofiler              # DaProfiler is an OSINT tool capable of tracing the digital identity of a target via social networks
 }
 
 function package_osint_configure() {
