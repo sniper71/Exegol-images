@@ -379,13 +379,13 @@ function install_trevorspray() {
 function install_sherlock() {
     colorecho "Installing Sherlock"
     git -C /opt/tools/ clone --depth 1 https://github.com/sherlock-project/sherlock.git
-    cd /opt/tools/Sherlock
+    cd /opt/tools/sherlock
     python3 -m venv ./venv
     ./venv/bin/python3 -m pip install -r requirements.txt
-    add-aliases Sherlock
-    add-history Sherlock
-    add-test-command "Sherlock --help"
-    add-to-list "Sherlock,https://github.com/sherlock-project/sherlock Hunt down social media accounts by username across social networks"
+    add-aliases sherlock
+    add-history sherlock
+    add-test-command "sherlock --help"
+    add-to-list "sherlock,https://github.com/sherlock-project/sherlock Hunt down social media accounts by username across social networks"
 }
 
 # Package dedicated to osint, recon and passive tools
